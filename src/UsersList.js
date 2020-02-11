@@ -6,7 +6,6 @@ class UsersList extends React.Component {
       }
 
     render() {
-        console.log(this.props);
         return (
             <div>
                 <h1>Users</h1>
@@ -14,7 +13,11 @@ class UsersList extends React.Component {
                {
                     this.props.usersData.map(user => {
                         return (
-                            <UsersListRow key={user._id}  gagulik={user}/>
+                            <UsersListRow 
+                                key={user._id} 
+                                user={user}
+                                onRemove={() => this.props.onRemove(user._id)}
+                            />
                         )
                     })
                 } 
